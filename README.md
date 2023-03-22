@@ -45,7 +45,8 @@ This setting was created by the VSCode extension, so you must go to the portal, 
 ## Deploying with GitHub Actions
 The workflow is defined in the `.github/workflows/main.yml` file. The workflow is set to be triggered manually via the `workflow_dispatch` setting. You can change this to trigger when a new commit is pushed to the `main` branch. The workflow will build the application and deploy it to Azure Functions.
 
-The only requirement is to add the `AZURE_CREDENTIALS` secret to the repository. The value of the secret should be the output of the following command:
+The only requirement is to add the `AZURE_CREDENTIALS` secret to the repository. The value of the secret should be the output of the following command run on Azure CLI tool:
+
 
 ```bash
 az ad sp create-for-rbac --name "rust-azure-function" --sdk-auth --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>
